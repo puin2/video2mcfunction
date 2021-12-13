@@ -5,7 +5,6 @@ import shutil
 import numpy as np
 import argparse
 import re
-import json
 
 parser = argparse.ArgumentParser(
             prog='Video2Mcfunction'
