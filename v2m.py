@@ -5,6 +5,7 @@ import shutil
 import numpy as np
 import argparse
 import re
+import json
 
 parser = argparse.ArgumentParser(
             prog='Video2Mcfunction'
@@ -12,13 +13,22 @@ parser = argparse.ArgumentParser(
 
 parser.add_argument('-i', '--input', help='input Video file path', type=str,required=True)
 parser.add_argument('-n', '--name', help=' Output Data/Resource packname', type=str,required=True)
-parser.add_argument('-r','--res', help='Output PNG file Resolution default=256', type=int, default=256)
+parser.add_argument('-r','--res', help='Output PNG file Resolution default=256', type=int)
 
 args = parser.parse_args()
 
 videoPath = args.input
 packName = re.sub('[^a-z0-9-_]','',str.lower(args.name.replace(' ','_')))
 resolution = args.res
+if resolution is None:
+    _ = ffmpeg.probe(videoPath)
+    width = _['streams'][0]['coded_width']
+    height = _['streams'][0]['coded_height']
+    if width > height:
+        resolution = width
+    elif height >= width:
+        resolution = height
+
 if resolution > 256:
     resolution = 256
 
