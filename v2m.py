@@ -98,17 +98,17 @@ for _ in range(4096,frameEnd+4096):
     frameList.append("'{\"text\":\"\\\\u" + format(_,'x').zfill(4) + "\"}'")
 
 with open(datPkPath + '/init.mcfunction','w',encoding='UTF-8') as file:
-    _ = 'data modify storage ' + packName + ': playing set value [' + ','.join(frameList) + ']\ndata modify storage ' + packName + ': played set value []'
+    _ = 'data modify storage ' + packName + ' playing set value [' + ','.join(frameList) + ']\ndata modify storage ' + packName + ' played set value []'
     file.write(_)
 
 ## play.mcfunction
 with open(datPkPath + '/play.mcfunction','w',encoding='UTF-8') as file:
-    _ = 'data modify storage ' + packName + ': played append from storage ' + packName + ': playing[0]\ndata remove storage ' + packName + ': playing[0]'
+    _ = 'data modify storage ' + packName + ' played append from storage ' + packName + ' playing[0]\ndata remove storage ' + packName + ' playing[0]'
     file.write(_)
 
 ## reverse.mcfunction
 with open(datPkPath + '/reverse.mcfunction','w',encoding='UTF-8') as file:
-    _ = 'data modify storage ' + packName + ': playing prepend from storage ' + packName + ': played[-1]\ndata remove storage ' + packName + ': played[-1]'
+    _ = 'data modify storage ' + packName + ' playing prepend from storage ' + packName + ' played[-1]\ndata remove storage ' + packName + ' played[-1]'
     file.write(_)
 
 ### pack.mcmeta
