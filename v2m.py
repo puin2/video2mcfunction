@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser(
 
 parser.add_argument('-i', '--input', help='input Video file path', type=str,required=True)
 parser.add_argument('-n', '--name', help=' Output Data/Resource packname', type=str,required=True)
-parser.add_argument('-r','--res', help='Output PNG file Resolution default=256', type=int)
+parser.add_argument('-r','--res', help='Output PNG file Resolution Max=256', type=int)
 
 args = parser.parse_args()
 
