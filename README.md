@@ -24,7 +24,7 @@
 を実行した後、以下をtickで実行してください。</br>
 `function ネームスペース:play`  または  `function ネームスペース:reverse`(逆再生)</br></br>
 表示側(看板、titleコマンドなど)は↓を使用すると表示できます。 (tickで実行しないと更新されません。)</br>
-`{"nbt":"playing[0]","storage":"ネームスペース","font":"ネームスペース:title","interpret":true,"color":"white"}`
+`{"nbt":"playing[0]","storage":"ネームスペース:","font":"ネームスペース:title","interpret":true,"color":"white"}`
 
 - フォントはtitle以外にもsign,other,reverseが利用できます。
   - `title` ascent:40 height:80 
