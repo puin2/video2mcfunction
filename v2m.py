@@ -58,7 +58,7 @@ os.makedirs(datPkPath,exist_ok=True)
 frameEnd = len([_ for _ in os.listdir(tempPath) if _.endswith('.png')]) 
 if frameEnd > 57344:
     frameEnd = 57344
-images = [cv2.imread(tempPath + '/{}.png'.format(_)) for _ in range (1,frameEnd+1)]
+images = [cv2.imread(tempPath + '/{}.png'.format(_), cv2.IMREAD_UNCHANGED) for _ in range (1,frameEnd+1)]
 cv2.imwrite(texPath + '/video.png', np.concatenate(images, axis=1))
 
 shutil.rmtree(tempPath)
